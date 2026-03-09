@@ -1,18 +1,22 @@
 # Data Order API 📦
 
-API desenvolvida para o desafio técnico de gerenciamento e transformação de pedidos.
+This is a Node.js REST API developed for the Jitterbit technical challenge. It manages orders and performs data transformation from Portuguese request fields to English database fields.
 
-## 🚀 Tecnologias
-- Node.js
-- Express
-- MongoDB Atlas (Mongoose)
+## 🚀 Technologies
+- Node.js & Express
+- MongoDB Atlas (Cloud Database)
+- Mongoose (Modeling)
+- Dotenv (Environment Variables)
 
-## 🛠️ Como rodar o projeto
-1. Clone o repositório.
-2. Execute `npm install`.
-3. Crie um arquivo `.env` com sua `MONGO_URI`.
-4. Execute `node index.js`.
+## 🛠️ Installation & Setup
+1. Clone this repository.
+2. Install dependencies: `npm install`
+3. Create a `.env` file in the root directory with your `MONGO_URI`.
+4. Run the server: `node index.js`
 
-## 📌 Endpoints
-- **POST `/order`**: Cria um pedido transformando os campos de PT para EN.
-- **GET `/order/:orderId`**: Busca um pedido pelo ID.
+## 🔌 API Endpoints
+- **POST `/order`**: Receives an order in PT-BR, transforms it, and saves it to MongoDB.
+- **GET `/order/:orderId`**: Retrieves an order by its ID.
+
+---
+Developed by Letícia Bezerra
