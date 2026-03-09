@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('✅ Connected to MongoDB Atlas'))
   .catch(err => console.error('❌ Connection error:', err));
 
-// --- Basic Swagger Documentation Object ---
+// --- Swagger Documentation Completo ---
 const swaggerDocument = {
   openapi: "3.0.0",
   info: {
@@ -53,17 +53,30 @@ const swaggerDocument = {
         responses: { 201: { description: "Created" } }
       }
     },
+    "/order/list": {
+      get: {
+        summary: "List all orders",
+        responses: { 200: { description: "Success" } }
+      }
+    },
     "/order/{orderId}": {
       get: {
         summary: "Get order by ID",
         parameters: [{ name: "orderId", in: "path", required: true, schema: { type: "string" } }],
         responses: { 200: { description: "Success" } }
-      }
-    },
-    "/order/list": {
-      get: {
-        summary: "List all orders",
-        responses: { 200: { description: "Success" } }
+      },
+      put: {
+        summary: "Update an order",
+        parameters: [{ name: "orderId", in: "path", required: true, schema: { type: "string" } }],
+        requestBody: {
+          content: { "application/json": { schema: { type: "object" } } }
+        },
+        responses: { 200: { description: "Updated" } }
+      },
+      delete: {
+        summary: "Delete an order",
+        parameters: [{ name: "orderId", in: "path", required: true, schema: { type: "string" } }],
+        responses: { 200: { description: "Deleted" } }
       }
     }
   }
